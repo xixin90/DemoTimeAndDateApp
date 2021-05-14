@@ -3,6 +3,7 @@ package sg.edu.rp.c346.id20019652.demotimeanddateapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -30,11 +31,27 @@ public class MainActivity extends AppCompatActivity {
         getBtnDisplayTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String strResponse = getBtnDisplayTime.getText().toString();
 
-                tvDisplay.setText(strResponse);
+                //time: includes hour and minute
+
+                String time = "Time is " + tp.getCurrentHour() + ":" + tp.getCurrentMinute();
+                tvDisplay.setText(time);
             }
+        });
 
+        btnDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                //calendar: includes day, month and year
+
+                int day = dp.getDayOfMonth();
+                int month = dp.getMonth();
+                int year = dp.getYear();
+
+                String date = "Date is " + day + "/" + month + "/" + year;
+                tvDisplay.setText(date);
             }
+        });
+    }
 }
