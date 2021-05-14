@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnDisplayDate;
     Button getBtnDisplayTime;
     TextView tvDisplay;
+    Button btnReset;Demo Checkbox Example
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btnDisplayDate = findViewById(R.id.buttonDisplayDate);
         getBtnDisplayTime = findViewById(R.id.buttonDisplayTime);
         tvDisplay = findViewById(R.id.textViewDisplay);
+        btnReset = findViewBtId(R.id.buttonReset);
 
         getBtnDisplayTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +53,19 @@ public class MainActivity extends AppCompatActivity {
 
                 String date = "Date is " + day + "/" + month + "/" + year;
                 tvDisplay.setText(date);
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //set date 1/1/2021
+                //set time 14:15 PM
+
+                dp.updateDate(2021, 1, 1);
+                tp.setCurrentHour(14);
+                tp.setCurrentMinute(15);
             }
         });
     }
